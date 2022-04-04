@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import java.util.*
 
@@ -18,9 +19,11 @@ class RecycleAdapter(private val context: Context, private val dataList: ArrayLi
             itemTitle?.text = itemData.title
             itemSubtitle?.text = itemData.subTitle
             itemDescript?.text = itemData.descript
+            itemView.setOnClickListener {
+                Toast.makeText(itemView.context, "test >> ${itemData?.title}", Toast.LENGTH_SHORT).show()
+            }
         }
     }
-
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType:Int): ItemViewHolder{
@@ -29,6 +32,9 @@ class RecycleAdapter(private val context: Context, private val dataList: ArrayLi
     }
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int){
         holder.bind(dataList[position], context)
+        val layoutParams = holder.itemView.layoutParams
+        layoutParams.height = 320
+        holder.itemView.requestLayout()
     }
 
     override fun getItemCount(): Int {
