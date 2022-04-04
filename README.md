@@ -29,3 +29,10 @@ ViewHolder의 적용으로 View의 재사용이 가능
 3.LayoutManager 라는게 사용이 가능한데 ListView에서 수직 스크롤이 가능하지만 가로,세로, grid형태 등 여러가지 방법으로 표현 가능
 4.ViewHolder 패턴이 권장이 아닌 강제하여 findViewById의 호출을 한번만 하여 무거운연산 해결
 
+
+ScrollView 와 RecyclerView 차이점 
+
+ScrollView 의 경우 가시성(?)에 관계없이 모든 하위 보기가 한번에 생성 
+
+RecyclerView 자식뷰가 자동으로 표시될 때까지의 생성을 연기 하고 공통 레이아웃으로 자식 뷰를 재사용 할 수 있다는 이점을 제공(?)
+
